@@ -27,7 +27,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.m2 
-           key: ${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
 
       - name: Setp 5 - What's in the corrent directory
         run: ls -a
