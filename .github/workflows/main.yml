@@ -1,0 +1,46 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Github-Action maven build
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Step 1 - Check out the main repository. 
+        uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Step 2 - setting up the JDK "23.0.1+11"
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Step 3 - Run a multi-line script
+        uses: actions/setup-java@v4
+        with:
+          java-version: '23.0.1+11'
+          distribution: 'temurin'
+
+      # Building out the project with maven 
+      - name: Step 4 - Building the project with maven build tool.
+        run: echo mvn -B package --file pom.xml
+
+      # Let's check that what's in our corrent directiroy.
+      - name: Setp 5 - What's in the corrent directory.
+        run: ls -a
+
+      # What's in our target folder, is it the .jar file available here or not.
+      - name: Step 6 - What's in the target folder. 
+          cd  target
+          ls -l | grep *.jar
