@@ -32,7 +32,7 @@ jobs:
 
       # Building out the project with maven 
       - name: Step 4 - Building the project with maven build tool
-        run: echo mvn -B package --file pom.xml
+        run: mvn -B package --file pom.xml
 
       # Let's check that what's in our corrent directiroy
       - name: Setp 5 - What's in the corrent directory
