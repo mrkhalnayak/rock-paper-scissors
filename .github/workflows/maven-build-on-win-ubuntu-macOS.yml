@@ -56,7 +56,7 @@ jobs:
       - name: Step 6 - What's in the target folder.
         run: |
           cd  target
-          ls -l
+          ls 
 
   build-on-macOS:
     runs-on: macOS-latest
