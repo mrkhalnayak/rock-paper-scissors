@@ -24,7 +24,7 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Setp 5 - What's in the corrent directory
-        run: ls
+        run: ls -a
 
       - name: Step 6 - What's in the target folder.
         run: |
@@ -51,7 +51,7 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Setp 5 - What's in the corrent directory
-        run: ls -a
+        run: ls
 
       - name: Step 6 - What's in the target folder.
         run: |
