@@ -1,0 +1,38 @@
+name: Github-Action maven build
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build-on-ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1 - Check out the main repository. 
+        uses: actions/checkout@v4
+
+      - name: Step 2 - setting up the JDK "23.0.1+11"
+        run: echo Hello, world!
+
+      - name: Step 3 - Run a multi-line script
+        uses: actions/setup-java@v4
+        with:
+          java-version: '23.0.1+11'
+          distribution: 'temurin'
+
+      - name: Step 4 - Building the project with maven build tool
+        run: mvn -B package --file pom.xml
+
+      - name: Step 5 - using the cache action for the caching the dependecny for faster workflow execution.
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2 
+          key: ${{runner.os}}-primes
+
+      - name: Setp 5 - What's in the corrent directory
+        run: ls -a
+
+      - name: Step 6 - What's in the target folder.
+        run: |
+          cd  target
+          ls -l
