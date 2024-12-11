@@ -42,4 +42,4 @@ jobs:
       - name: Step 6 - What's in the target folder.
         run: |
           cd  target
-          ls -l | grep *.jar
+          ls -l
