@@ -11,24 +11,18 @@
     <name>roshambo</name>
 
     <dependencies>
-        <!-- Updated JUnit Dependency to JUnit 5 -->
+        <!-- JUnit 4 dependency -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.8.2</version> <!-- Updated to JUnit 5.8.2 -->
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.2</version> <!-- Updated to JUnit 5.8.2 -->
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version> <!-- Updated JUnit version to 4.13.2 -->
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Maven Compiler Plugin to specify Java version -->
+            <!-- Maven Compiler Plugin to specify Java 8 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -39,15 +33,15 @@
                 </configuration>
             </plugin>
 
-            <!-- Ensures JUnit 5 is correctly used in Maven -->
+            <!-- Ensure JUnit tests are correctly executed -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-                    <dependenciesToScan>
-                        <dependency>org.junit.jupiter:junit-jupiter-api</dependency>
-                    </dependenciesToScan>
+                    <includes>
+                        <include>**/*Test.java</include> <!-- Includes all test classes -->
+                    </includes>
                 </configuration>
             </plugin>
         </plugins>
