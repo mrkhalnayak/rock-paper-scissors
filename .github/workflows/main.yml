@@ -40,6 +40,6 @@ jobs:
 
       # What's in our target folder, is it the .jar file available here or not
       - name: Step 6 - What's in the target folder.
-        run:
+        run: |
           cd  target
           ls -l | grep *.jar
